@@ -1,0 +1,48 @@
+<section appSection="skills" theme="dark" class="section">
+  <div class="container skills">
+    <div class="skills__intro">
+      <h2>{{ 'skills.title' | t }}</h2>
+      <p class="skills__text">{{ 'skills.text' | t }}</p>
+
+      <div
+        class="growth"
+        [class.open]="growthOpen()"
+        (mouseenter)="growthOpen.set(true)"
+        (mouseleave)="growthOpen.set(false)"
+      >
+        <button
+          type="button"
+          class="growth__trigger"
+          [attr.aria-expanded]="growthOpen()"
+          aria-controls="growth-card"
+          (click)="growthOpen.set(!growthOpen())"
+        >
+          <app-star class="growth__star" />
+          {{ 'skills.growth' | t }}
+        </button>
+
+        <div id="growth-card" class="growth__card" role="region" [attr.aria-hidden]="!growthOpen()">
+          <p class="growth__title">{{ 'skills.growthTitle' | t }}</p>
+          <p>{{ 'skills.growthText' | t }}</p>
+          <ul class="growth__icons">
+            @for (skill of learning; track skill.name) {
+              <li>
+                <img [src]="skill.icon" alt="" width="48" height="48" loading="lazy" />
+                <span>{{ skill.name }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <ul class="skills__grid">
+      @for (skill of skills; track skill.name) {
+        <li class="skill">
+          <img [src]="skill.icon" alt="" width="72" height="72" loading="lazy" />
+          <span>{{ skill.name }}</span>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

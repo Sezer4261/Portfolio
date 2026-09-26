@@ -1,0 +1,97 @@
+<form class="form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+  <div class="form__row">
+    @for (field of inlineFields; track field) {
+      <label class="field" [class.field--error]="errors()[field]">
+        <span class="field__label">{{ 'contact.' + field + '.label' | t }}</span>
+        <input
+          [type]="field === 'email' ? 'email' : 'text'"
+          [formControlName]="field"
+          [attr.autocomplete]="field"
+          [attr.placeholder]="
+            (errors()[field] && !form.controls[field].value ? errors()[field]! : 'contact.' + field + '.placeholder') | t
+          "
+          [attr.aria-invalid]="!!errors()[field]"
+          [attr.aria-describedby]="field + '-error'"
+          (blur)="validate(field)"
+          (input)="clearError(field)"
+        />
+        <span class="field__error" [id]="field + '-error'" aria-live="polite">
+          @if (errors()[field] && form.controls[field].value) {
+            {{ errors()[field]! | t }}
+          }
+        </span>
+      </label>
+    }
+  </div>
+
+  <label class="field" [class.field--error]="errors().message">
+    <span class="field__label">{{ 'contact.message.label' | t }}</span>
+    <textarea
+      formControlName="message"
+      rows="4"
+      [attr.placeholder]="
+        errors().message && !form.controls.message.value
+          ? (errors().message! | t)
+          : ('contact.message.placeholder' | t: { firstName: profile.firstName })
+      "
+      [attr.aria-invalid]="!!errors().message"
+      aria-describedby="message-error"
+      (blur)="validate('message')"
+      (input)="clearError('message')"
+    ></textarea>
+    <span class="field__error" id="message-error" aria-live="polite">
+      @if (errors().message && form.controls.message.value) {
+        {{ errors().message! | t }}
+      }
+    </span>
+  </label>
+
+  <div class="privacy">
+    <label class="checkbox">
+      <input
+        type="checkbox"
+        formControlName="privacy"
+        aria-labelledby="privacy-text"
+        aria-describedby="privacy-error"
+        (change)="validate('privacy')"
+      />
+      <span class="checkbox__box" aria-hidden="true">
+        <svg class="checkbox__empty" viewBox="20 20 20 20">
+          <path
+            fill="currentColor"
+            d="M24.1667 37.5C23.7083 37.5 23.316 37.3368 22.9896 37.0104C22.6632 36.684 22.5 36.2917 22.5 35.8333V24.1667C22.5 23.7083 22.6632 23.316 22.9896 22.9896C23.316 22.6632 23.7083 22.5 24.1667 22.5H35.8333C36.2917 22.5 36.684 22.6632 37.0104 22.9896C37.3368 23.316 37.5 23.7083 37.5 24.1667V35.8333C37.5 36.2917 37.3368 36.684 37.0104 37.0104C36.684 37.3368 36.2917 37.5 35.8333 37.5H24.1667ZM24.1667 35.8333H35.8333V24.1667H24.1667V35.8333Z"
+          />
+        </svg>
+        <svg class="checkbox__checked" viewBox="100 20 20 20">
+          <path
+            fill="currentColor"
+            d="M108.833 31.1667L107.042 29.375C106.889 29.2222 106.694 29.1458 106.458 29.1458C106.222 29.1458 106.028 29.2222 105.875 29.375C105.722 29.5278 105.646 29.7222 105.646 29.9583C105.646 30.1944 105.722 30.3889 105.875 30.5417L108.25 32.9167C108.417 33.0833 108.611 33.1667 108.833 33.1667C109.056 33.1667 109.25 33.0833 109.417 32.9167L114.125 28.2083C114.278 28.0556 114.354 27.8611 114.354 27.625C114.354 27.3889 114.278 27.1944 114.125 27.0417C113.972 26.8889 113.778 26.8125 113.542 26.8125C113.306 26.8125 113.111 26.8889 112.958 27.0417L108.833 31.1667ZM104.167 37.5C103.708 37.5 103.316 37.3368 102.99 37.0104C102.663 36.684 102.5 36.2917 102.5 35.8333V24.1667C102.5 23.7083 102.663 23.316 102.99 22.9896C103.316 22.6632 103.708 22.5 104.167 22.5H115.833C116.292 22.5 116.684 22.6632 117.01 22.9896C117.337 23.316 117.5 23.7083 117.5 24.1667V35.8333C117.5 36.2917 117.337 36.684 117.01 37.0104C116.684 37.3368 116.292 37.5 115.833 37.5H104.167ZM104.167 35.8333H115.833V24.1667H104.167V35.8333Z"
+          />
+        </svg>
+      </span>
+    </label>
+    <p class="privacy__text" id="privacy-text">
+      {{ 'contact.privacy.before' | t }}
+      <a class="text-link" routerLink="/privacy-policy" target="_blank">{{ 'contact.privacy.link' | t }}</a>
+      {{ 'contact.privacy.after' | t }}
+    </p>
+    <span class="field__error privacy__error" id="privacy-error" aria-live="polite">
+      @if (errors().privacy) {
+        {{ errors().privacy! | t }}
+      }
+    </span>
+  </div>
+
+  <div class="form__submit" (click)="revealErrors()">
+    <button type="submit" class="btn" [disabled]="form.invalid || sending()">
+      {{ (sending() ? 'contact.sending' : 'contact.submit') | t }}
+    </button>
+  </div>
+</form>
+
+@if (feedback(); as type) {
+  <div class="toast" [class.toast--error]="type === 'error'" role="status">
+    <p>{{ 'contact.' + type | t: { email: profile.email } }}</p>
+    <button type="button" class="toast__close" (click)="closeFeedback()" [attr.aria-label]="'contact.close' | t">×</button>
+  </div>
+}

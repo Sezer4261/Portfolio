@@ -43,5 +43,5 @@ __screenshots__/
 .DS_Store
 Thumbs.db
 
-# local asset extraction scripts
-/_tools/
+
+

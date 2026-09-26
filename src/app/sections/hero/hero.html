@@ -1,0 +1,49 @@
+<section appSection="home" theme="blue" class="hero">
+  <div class="container hero__inner">
+    <div class="hero__text">
+      <p class="hero__greeting">{{ 'hero.greeting' | t }}</p>
+      <h1>
+        {{ profile.firstName }}<br />
+        {{ profile.lastName }}
+      </h1>
+      <p class="hero__role">{{ 'hero.role' | t }}</p>
+      <a class="btn hero__cta" href="/#contact" (click)="$event.preventDefault(); navigation.goTo('contact')">
+        {{ 'hero.cta' | t }}
+      </a>
+    </div>
+
+    <div class="hero__visual">
+      <div class="hero__star-wrap">
+        <app-star class="hero__star" />
+        <span class="hero__badge">{{ 'hero.badge' | t }}</span>
+      </div>
+      <img
+        class="hero__photo"
+        [src]="profile.heroImage"
+        [alt]="'hero.photoAlt' | t: { name: fullName }"
+        width="611"
+        height="919"
+        fetchpriority="high"
+      />
+    </div>
+
+    <a
+      class="scroll-down"
+      href="/#about"
+      (click)="$event.preventDefault(); navigation.goTo('about')"
+      [attr.aria-label]="'hero.scrollDown' | t"
+    >
+      <svg class="scroll-down__ring" viewBox="0 0 144 144" aria-hidden="true">
+        <defs>
+          <path id="scroll-circle" d="M72 72m-58 0a58 58 0 1 1 116 0a58 58 0 1 1 -116 0" />
+        </defs>
+        <text>
+          <textPath href="#scroll-circle" textLength="364" lengthAdjust="spacing">
+            {{ 'hero.scrollDown' | t }} · {{ 'hero.scrollDown' | t }} · {{ 'hero.scrollDown' | t }} ·
+          </textPath>
+        </text>
+      </svg>
+      <app-star class="scroll-down__star" />
+    </a>
+  </div>
+</section>

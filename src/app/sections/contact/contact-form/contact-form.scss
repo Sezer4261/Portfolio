@@ -1,0 +1,200 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* Figma "Name form" / "Email form" / "Message form" */
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field__label {
+  margin-bottom: 12px;
+  font-size: 24px;
+  font-weight: 700;
+  transition: color var(--transition);
+
+  .field:focus-within & {
+    color: var(--c-orange);
+  }
+
+  @media (max-width: 767px) {
+    font-size: 20px;
+  }
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 4px 0 12px;
+  border: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--c-cream) 50%, transparent);
+  border-radius: 0;
+  background: transparent;
+  font-size: 18px;
+  outline: none;
+  transition: border-color var(--transition);
+
+  &::placeholder {
+    color: color-mix(in srgb, var(--c-cream) 50%, transparent);
+    transition: color var(--transition);
+  }
+
+  &:focus {
+    border-bottom-color: var(--c-orange);
+  }
+
+  .field--error & {
+    border-bottom-color: var(--c-error);
+
+    &::placeholder {
+      color: var(--c-error);
+    }
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+/* Reserved space so validation messages never shift the layout */
+.field__error {
+  display: block;
+  height: 24px;
+  padding-top: 4px;
+  overflow: hidden;
+  color: var(--c-error);
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.privacy {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 8px;
+  margin-top: 8px;
+  font-size: 16px;
+}
+
+.privacy__error {
+  grid-column: 1 / -1;
+}
+
+/* Figma "Check mark" */
+.checkbox {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin-left: -6px;
+  cursor: pointer;
+
+  input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+
+.checkbox__box {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: var(--c-orange);
+  transition: background-color var(--transition);
+
+  svg {
+    grid-area: 1 / 1;
+    width: 20px;
+    height: 20px;
+  }
+
+  .checkbox:hover & {
+    background-color: color-mix(in srgb, var(--c-yellow) 50%, transparent);
+  }
+
+  input:focus-visible + & {
+    outline: 2px solid var(--c-orange);
+  }
+}
+
+.checkbox__checked,
+input:checked + .checkbox__box .checkbox__empty {
+  display: none;
+}
+
+input:checked + .checkbox__box .checkbox__checked {
+  display: block;
+}
+
+.form__submit {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.form__submit .btn {
+  min-width: 148px;
+  height: 40px;
+}
+
+.toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: min(520px, 100vw - 2 * var(--gutter));
+  padding: 16px 20px 16px 24px;
+  border: 1px solid var(--c-cream);
+  border-radius: var(--radius);
+  background-color: var(--c-blue);
+  color: var(--c-cream);
+  font-size: 16px;
+  transform: translateX(-50%);
+  animation: toast-in 300ms ease-out;
+}
+
+.toast--error {
+  background-color: var(--c-error);
+}
+
+.toast__close {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  font-size: 24px;
+  line-height: 1;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 16px);
+  }
+}

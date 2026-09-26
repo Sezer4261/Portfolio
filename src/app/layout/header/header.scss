@@ -1,0 +1,184 @@
+:host {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+}
+
+.header__inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  width: min(1248px, 100% - 2 * var(--gutter));
+  height: var(--header-height);
+  margin-inline: auto;
+
+  @media (max-width: 1023px) {
+    grid-template-columns: 1fr auto;
+  }
+}
+
+.header__social {
+  justify-self: start;
+  margin-left: -6px;
+
+  @media (max-width: 1023px) {
+    display: none;
+  }
+}
+
+.header__logo {
+  display: flex;
+  justify-self: start;
+  border-radius: var(--radius);
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  justify-self: end;
+  gap: 20px;
+
+  @media (max-width: 767px) {
+    gap: 12px;
+  }
+}
+
+/* Figma "Language switch" */
+.lang-switch {
+  width: 40px;
+  height: 40px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 600;
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition);
+
+  &:hover {
+    background-color: var(--c-orange);
+    border-color: var(--c-orange);
+    color: var(--c-cream);
+  }
+
+  :host(.theme-cream) &:hover {
+    border-color: var(--c-dark);
+  }
+}
+
+/* Figma "Menu": burger in text color, close icon yellow, both orange on hover */
+.burger {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  transition: color var(--transition);
+
+  svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  :host(.menu-open) & {
+    color: var(--c-yellow);
+  }
+
+  &:hover {
+    color: var(--c-orange);
+  }
+}
+
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
+.menu {
+  position: absolute;
+  top: calc(var(--header-height) - 8px);
+  right: max(var(--gutter), (100vw - 1248px) / 2);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 32px;
+  border-radius: var(--radius);
+  background-color: var(--c-cream);
+  color: var(--c-dark);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.15);
+  animation: menu-in 200ms ease-out;
+
+  :host(.theme-cream) & {
+    background-color: var(--c-blue);
+    color: var(--c-cream);
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 0;
+    font-size: 20px;
+    font-weight: 600;
+    transition: color var(--transition);
+
+    &:hover {
+      color: var(--c-blue);
+
+      :host(.theme-cream) & {
+        color: var(--c-dark);
+      }
+
+      .menu__star {
+        width: 20px;
+        opacity: 1;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    inset: var(--header-height) 0 auto;
+    height: calc(100dvh - var(--header-height));
+    justify-content: space-between;
+    padding: 32px var(--gutter) 48px;
+    border-radius: 0;
+    box-shadow: none;
+
+    a {
+      font-size: 32px;
+    }
+  }
+}
+
+.menu__star {
+  width: 0;
+  color: var(--c-orange);
+  opacity: 0;
+  transition:
+    width var(--transition),
+    opacity var(--transition);
+}
+
+.menu__social {
+  margin-left: -6px;
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}

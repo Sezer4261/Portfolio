@@ -1,12 +1,17 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Cursor } from './layout/cursor/cursor';
+import { Footer } from './layout/footer/footer';
+import { Header } from './layout/header/header';
 
 @Component({
-  imports: [RouterOutlet],
   selector: 'app-root',
-  styleUrl: './app.scss',
-  templateUrl: './app.html',
+  imports: [RouterOutlet, Header, Footer, Cursor],
+  template: `
+    <app-header />
+    <router-outlet />
+    <app-footer />
+    <app-cursor />
+  `,
 })
-export class App {
-  protected readonly title = signal('portfolio');
-}
+export class App {}
