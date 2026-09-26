@@ -19,17 +19,18 @@ import { Star } from '../../shared/star/star';
                 <app-star class="reference__star" />
                 <figcaption class="reference__name">{{ reference.name }}</figcaption>
                 <blockquote>{{ 'references.items.' + reference.key + '.quote' | t }}</blockquote>
-                <p class="reference__role">{{ 'references.items.' + reference.key + '.role' | t }}</p>
               </figure>
-              <a
-                class="reference__link"
-                [href]="reference.linkedin"
-                target="_blank"
-                rel="noopener noreferrer"
-                [attr.aria-label]="'references.linkedinLabel' | t: { name: reference.name }"
-              >
-                {{ 'references.linkedin' | t }}
-              </a>
+              @if (reference.linkedin) {
+                <a
+                  class="reference__link"
+                  [href]="reference.linkedin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  [attr.aria-label]="'references.linkedinLabel' | t: { name: reference.name }"
+                >
+                  {{ 'references.linkedin' | t }}
+                </a>
+              }
             </li>
           }
         </ul>
@@ -103,11 +104,6 @@ import { Star } from '../../shared/star/star';
 
     blockquote {
       margin: 0;
-    }
-
-    .reference__role {
-      font-size: 18px;
-      font-weight: 700;
     }
 
     .reference__link {

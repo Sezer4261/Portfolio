@@ -22,7 +22,6 @@ const en = {
     greeting: "Hello there! I'm",
     role: 'Frontend Developer',
     cta: "Let's talk",
-    badge: 'Problem Solver',
     scrollDown: 'Scroll down',
     photoAlt: 'Portrait of {name}',
   },
@@ -113,18 +112,15 @@ const en = {
     items: {
       first: {
         quote:
-          'A reliable team partner. The technical skills and proactive approach were crucial to the success of our project.',
-        role: 'Frontend Developer',
+          '“Star for outstanding commitment” – Thank you for your support. You are a big part of our team and we can always count on you.',
       },
       second: {
         quote:
-          'Always kept calm when things got stressful and found solutions instead of problems. Code reviews were thorough, constructive and helpful.',
-        role: 'Frontend Developer',
+          'Mr. Ünaldi has extremely comprehensive and well-founded expertise and puts it into practice excellently. Efficient, determined and meticulous.',
       },
       third: {
         quote:
-          'Great communication within the team and a real eye for detail. The user interface was clean, consistent and fully responsive.',
-        role: 'Frontend Developer',
+          'Despite a completely new industry and new challenges, Mr. Ünaldi grew quickly and mastered everything in a short time. He carried out all tasks confidently, competently, independently and to our complete satisfaction.',
       },
     },
   },
@@ -196,7 +192,6 @@ const de: typeof en = {
     greeting: 'Hallo! Ich bin',
     role: 'Frontend Developer',
     cta: 'Lass uns reden',
-    badge: 'Problemlöser',
     scrollDown: 'Nach unten',
     photoAlt: 'Porträt von {name}',
   },
@@ -285,18 +280,15 @@ const de: typeof en = {
     items: {
       first: {
         quote:
-          'Ein verlässlicher Teampartner. Die technischen Fähigkeiten und die proaktive Arbeitsweise waren entscheidend für den Erfolg unseres Projekts.',
-        role: 'Frontend-Entwicklerin',
+          '„Star für außergewöhnlichen Einsatz“ – Vielen Dank für deine Unterstützung. Du bist ein großer Teil unseres Teams und wir können immer auf dich zählen.',
       },
       second: {
         quote:
-          'Blieb auch in stressigen Phasen ruhig und hat Lösungen statt Probleme gesucht. Die Code-Reviews waren gründlich, konstruktiv und hilfreich.',
-        role: 'Frontend-Entwickler',
+          'Herr Ünaldi verfügt über ein äußerst umfassendes und sehr fundiertes Fachwissen und setzt es hervorragend in die Praxis um. Effizient, zielstrebig und sorgfältig.',
       },
       third: {
         quote:
-          'Starke Kommunikation im Team und ein echtes Auge fürs Detail. Die Benutzeroberfläche war sauber, einheitlich und vollständig responsiv.',
-        role: 'Frontend-Entwicklerin',
+          'Trotz komplett neuer Branche und Herausforderungen ist Herr Ünaldi rasch gewachsen und beherrschte alles in kurzer Zeit. Er hat alles sicher, kompetent, eigenverantwortlich und mit voller Zufriedenheit ausgeführt.',
       },
     },
   },

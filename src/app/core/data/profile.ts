@@ -5,12 +5,12 @@
 export const PROFILE = {
   firstName: 'Sezer',
   lastName: 'Ünaldi',
-  city: 'Musterstadt',
-  street: 'Musterstraße 1',
-  zip: '12345',
+  city: 'Günzburg',
+  street: 'Schützenstraße 5',
+  zip: '89312',
   country: { de: 'Deutschland', en: 'Germany' },
   email: 'konya_sezer@hotmail.de',
-  domain: 'https://vorname-nachname.de',
+  domain: 'https://sezer-uenaldi.de',
 
   github: 'https://github.com/Sezer4261',
   linkedin: 'https://www.linkedin.com/in/sezer-uenaldi/',
