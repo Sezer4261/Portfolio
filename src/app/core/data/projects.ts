@@ -36,11 +36,7 @@ function project(key: string, title: string, repo: string, technologies: string[
 
 export const PROJECTS: Project[] = [
   project('el-pollo-loco', 'El Pollo Loco', 'El-Pollo-Loco', ['JavaScript', 'HTML', 'CSS', 'Canvas'], 0),
-  project('poll-app', 'Poll App', 'PollApp', ['Angular', 'TypeScript', 'SCSS', 'Supabase'], 1),
-  project('memory', 'Memory', 'Memory', ['TypeScript', 'Vite', 'CSS'], 2),
-  project('join', 'Join', 'Join-App-Sezer', ['JavaScript', 'HTML', 'CSS', 'Firebase'], 3),
-  project('order-app', 'Order App', 'Order-App', ['JavaScript', 'HTML', 'Tailwind CSS'], 4),
-  project('pokedex', 'Pokédex', 'Pokedex', ['JavaScript', 'HTML', 'CSS', 'REST-API'], 5),
-  project('cooking-world', 'Kochwelt', 'Cooking-world', ['HTML', 'CSS', 'JavaScript'], 6),
-  project('photo-album', 'Fotogram', 'Photo-album', ['HTML', 'CSS', 'JavaScript'], 7),
+  project('join', 'Join', 'Join-App-Sezer', ['JavaScript', 'HTML', 'CSS', 'Firebase'], 1),
+  project('poll-app', 'Poll App', 'PollApp', ['Angular', 'TypeScript', 'SCSS', 'Supabase'], 2),
+  project('order-app', 'Order App', 'Order-App', ['JavaScript', 'HTML', 'Tailwind CSS'], 3),
 ];

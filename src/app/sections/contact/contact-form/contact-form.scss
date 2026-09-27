@@ -96,6 +96,10 @@ textarea {
   grid-column: 1 / -1;
 }
 
+.privacy--error .checkbox__box {
+  color: var(--c-error);
+}
+
 /* Figma "Check mark" */
 .checkbox {
   position: relative;
@@ -159,6 +163,15 @@ input:checked + .checkbox__box .checkbox__checked {
 .form__submit .btn {
   min-width: 148px;
   height: 40px;
+
+  /* Disabled buttons swallow clicks; let them reach the wrapper that reveals the errors. */
+  &:disabled {
+    pointer-events: none;
+  }
+}
+
+.form__submit:has(.btn:disabled) {
+  cursor: not-allowed;
 }
 
 .toast {

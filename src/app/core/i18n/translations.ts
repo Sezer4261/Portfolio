@@ -68,12 +68,6 @@ const en = {
       participation:
         'I implemented the app with Angular Signals, routing, custom pipes and overlays. The data layer is Supabase-ready with real-time results and falls back to localStorage.',
     },
-    memory: {
-      description:
-        'A two-player memory game with switchable themes, selectable board sizes and animated cards.',
-      participation:
-        'I wrote the game in TypeScript with Vite and a modular structure: game logic, views and components are separated, functions stay short and every public API is documented with JSDoc.',
-    },
     join: {
       description:
         'Task manager inspired by the Kanban system. Create and organize tasks using drag and drop, assign contacts and keep an eye on deadlines in the summary.',
@@ -85,24 +79,6 @@ const en = {
         'An order app for a Turkish restaurant. Put dishes in the shopping cart, change quantities and see the total price including delivery costs at a glance.',
       participation:
         'I render the menu and the shopping cart dynamically with JavaScript templates and styled the responsive layout with Tailwind CSS.',
-    },
-    pokedex: {
-      description:
-        'A Pokédex that loads data from the PokeAPI. Browse Pokémon cards color-coded by type, search by name and open a detail view with stats.',
-      participation:
-        'I connected the REST API with async/await, load Pokémon in batches, show loading feedback and handle invalid searches. The layout is responsive down to 320 px.',
-    },
-    'cooking-world': {
-      description:
-        'A recipe website with a start page, recipe pages, contact form, legal notice and privacy policy.',
-      participation:
-        'My first web project: I built a multi-page website with semantic HTML, CSS and JavaScript, including dynamic recipe display and form handling.',
-    },
-    'photo-album': {
-      description:
-        'A photo gallery of dream cars with a lightbox. Click through the pictures and enjoy them with background music.',
-      participation:
-        'I built the lightbox with JavaScript: open, close and navigate between images, plus audio control.',
     },
   },
   references: {
@@ -238,11 +214,6 @@ const de: typeof en = {
       participation:
         'Ich habe die App mit Angular Signals, Routing, eigenen Pipes und Overlays umgesetzt. Die Datenschicht ist für Supabase mit Echtzeit-Ergebnissen vorbereitet und nutzt sonst localStorage.',
     },
-    memory: {
-      description: 'Ein Memory-Spiel für zwei Spieler mit wählbaren Themes, verschiedenen Spielfeldgrößen und animierten Karten.',
-      participation:
-        'Ich habe das Spiel in TypeScript mit Vite modular aufgebaut: Spiellogik, Ansichten und Komponenten sind getrennt, Funktionen bleiben kurz und alle öffentlichen Schnittstellen sind mit JSDoc dokumentiert.',
-    },
     join: {
       description:
         'Aufgabenmanager nach dem Vorbild des Kanban-Systems. Erstelle und organisiere Aufgaben per Drag-and-drop, weise Kontakte zu und behalte Deadlines in der Übersicht im Blick.',
@@ -254,23 +225,6 @@ const de: typeof en = {
         'Eine Bestell-App für ein türkisches Restaurant. Lege Gerichte in den Warenkorb, ändere Mengen und sieh den Gesamtpreis inklusive Lieferkosten auf einen Blick.',
       participation:
         'Ich rendere Speisekarte und Warenkorb dynamisch mit JavaScript-Templates und habe das responsive Layout mit Tailwind CSS gestaltet.',
-    },
-    pokedex: {
-      description:
-        'Ein Pokédex, der seine Daten aus der PokeAPI lädt. Stöbere durch nach Typ eingefärbte Pokémon-Karten, suche nach Namen und öffne eine Detailansicht mit Werten.',
-      participation:
-        'Ich habe die REST-API mit async/await angebunden, lade Pokémon in Paketen nach, zeige Ladefeedback und fange ungültige Suchen ab. Das Layout ist bis 320 px responsiv.',
-    },
-    'cooking-world': {
-      description: 'Eine Rezept-Website mit Startseite, Rezeptseiten, Kontaktformular, Impressum und Datenschutzerklärung.',
-      participation:
-        'Mein erstes Webprojekt: eine mehrseitige Website mit semantischem HTML, CSS und JavaScript, inklusive dynamischer Rezeptanzeige und Formularverarbeitung.',
-    },
-    'photo-album': {
-      description:
-        'Eine Fotogalerie mit Traumautos und Lightbox. Klicke dich durch die Bilder und genieße sie mit Hintergrundmusik.',
-      participation:
-        'Ich habe die Lightbox mit JavaScript gebaut: Öffnen, Schließen und Blättern zwischen den Bildern sowie eine Audiosteuerung.',
     },
   },
   references: {

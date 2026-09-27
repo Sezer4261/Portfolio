@@ -15,7 +15,9 @@ import { SectionService } from '../../core/sections/section.service';
           [attr.aria-current]="sections.activeId() === link.id ? 'true' : null"
           [attr.aria-label]="'nav.goTo' | t: { section: (link.label | t) }"
           (click)="navigation.goTo(link.id)"
-        ></button>
+        >
+          <span class="label" aria-hidden="true">{{ link.label | t }}</span>
+        </button>
       }
     </nav>
   `,
@@ -23,13 +25,13 @@ import { SectionService } from '../../core/sections/section.service';
     :host {
       position: fixed;
       top: 50%;
-      right: max(20px, (100vw - 1320px) / 2);
+      right: max(12px, (100vw - 1320px) / 2);
       z-index: 90;
       color: var(--c-cream);
       transform: translateY(-50%);
       transition: color var(--transition);
 
-      @media (max-width: 1279px) {
+      @media (max-width: 1023px) {
         display: none;
       }
     }
@@ -41,19 +43,20 @@ import { SectionService } from '../../core/sections/section.service';
     nav {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 2px;
     }
 
     button {
+      position: relative;
       display: grid;
       place-items: center;
-      width: 24px;
-      height: 24px;
+      width: 32px;
+      height: 32px;
 
       &::before {
         content: '';
-        width: 6px;
-        height: 6px;
+        width: 8px;
+        height: 8px;
         border-radius: 50%;
         background-color: currentColor;
         transition:
@@ -62,15 +65,44 @@ import { SectionService } from '../../core/sections/section.service';
           border-radius var(--transition);
       }
 
-      &:hover::before {
-        transform: scale(1.5);
+      &:hover::before,
+      &:focus-visible::before {
+        transform: scale(1.4);
       }
 
       &.active::before {
         border-radius: 1px;
         background-color: var(--c-orange);
-        transform: rotate(45deg) scale(1.2);
+        transform: rotate(45deg) scale(1.3);
       }
+    }
+
+    .label {
+      position: absolute;
+      top: 50%;
+      right: 100%;
+      padding: 4px 10px;
+      border-radius: 16px;
+      background-color: var(--c-dark);
+      color: var(--c-cream);
+      font-size: 14px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(8px, -50%);
+      transition:
+        opacity var(--transition),
+        transform var(--transition);
+
+      button:hover &,
+      button:focus-visible & {
+        opacity: 1;
+        transform: translate(0, -50%);
+      }
+    }
+
+    :host(.on-cream) .label {
+      background-color: var(--c-blue);
     }
   `,
   host: { '[class.on-cream]': 'sections.activeTheme() === "cream"' },

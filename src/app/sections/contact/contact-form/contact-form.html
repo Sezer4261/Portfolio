@@ -46,7 +46,7 @@
     </span>
   </label>
 
-  <div class="privacy">
+  <div class="privacy" [class.privacy--error]="errors().privacy">
     <label class="checkbox">
       <input
         type="checkbox"
@@ -54,6 +54,7 @@
         aria-labelledby="privacy-text"
         aria-describedby="privacy-error"
         (change)="validate('privacy')"
+        (blur)="validate('privacy')"
       />
       <span class="checkbox__box" aria-hidden="true">
         <svg class="checkbox__empty" viewBox="20 20 20 20">

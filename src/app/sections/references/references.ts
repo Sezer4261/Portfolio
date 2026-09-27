@@ -45,7 +45,6 @@ import { Star } from '../../shared/star/star';
     .references {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      align-items: start;
       gap: 32px;
       margin: 0;
       padding: 0;
@@ -56,18 +55,11 @@ import { Star } from '../../shared/star/star';
       display: flex;
       flex-direction: column;
       gap: 32px;
-
-      &:nth-child(2) {
-        margin-top: 48px;
-      }
-
-      &:nth-child(3) {
-        margin-top: 120px;
-      }
     }
 
     .reference__card {
       position: relative;
+      flex: 1;
       display: flex;
       flex-direction: column;
       gap: 16px;
@@ -120,15 +112,7 @@ import { Star } from '../../shared/star/star';
     @media (max-width: 1023px) {
       .references {
         grid-template-columns: 1fr;
-        max-width: 560px;
-      }
-
-      .reference:nth-child(n) {
-        margin-top: 0;
-      }
-
-      .reference:nth-child(2) {
-        margin-left: 10%;
+        gap: 24px;
       }
     }
 
@@ -139,10 +123,6 @@ import { Star } from '../../shared/star/star';
 
       .reference__card {
         padding: 32px 24px;
-      }
-
-      .reference:nth-child(2) {
-        margin-left: 0;
       }
     }
   `,
