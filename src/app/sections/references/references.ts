@@ -20,17 +20,6 @@ import { Star } from '../../shared/star/star';
                 <figcaption class="reference__name">{{ reference.name }}</figcaption>
                 <blockquote>{{ 'references.items.' + reference.key + '.quote' | t }}</blockquote>
               </figure>
-              @if (reference.linkedin) {
-                <a
-                  class="reference__link"
-                  [href]="reference.linkedin"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  [attr.aria-label]="'references.linkedinLabel' | t: { name: reference.name }"
-                >
-                  {{ 'references.linkedin' | t }}
-                </a>
-              }
             </li>
           }
         </ul>
@@ -51,18 +40,17 @@ import { Star } from '../../shared/star/star';
       list-style: none;
     }
 
-    .reference {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
+    /* Subgrid rows keep names and quotes aligned across all cards. */
+    .reference,
+    .reference__card {
+      display: grid;
+      grid-row: span 2;
+      grid-template-rows: subgrid;
+      row-gap: 16px;
     }
 
     .reference__card {
       position: relative;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
       margin: 0;
       padding: 40px 36px;
       border: 1px solid var(--c-cream);
@@ -98,21 +86,10 @@ import { Star } from '../../shared/star/star';
       margin: 0;
     }
 
-    .reference__link {
-      align-self: flex-end;
-      font-size: 18px;
-      font-weight: 700;
-      transition: color var(--transition);
-
-      &:hover {
-        color: var(--c-orange);
-      }
-    }
-
     @media (max-width: 1023px) {
       .references {
         grid-template-columns: 1fr;
-        gap: 24px;
+        row-gap: 24px;
       }
     }
 

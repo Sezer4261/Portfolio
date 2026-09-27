@@ -2,7 +2,6 @@ export interface Reference {
   /** Key inside `references.items.*` of the translations. */
   key: string;
   name: string;
-  linkedin?: string;
 }
 
 export const REFERENCES: Reference[] = [

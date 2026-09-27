@@ -83,8 +83,6 @@ const en = {
   },
   references: {
     title: 'What my colleagues say about me',
-    linkedin: 'LinkedIn profile >>',
-    linkedinLabel: 'LinkedIn profile of {name}',
     items: {
       first: {
         quote:
@@ -229,8 +227,6 @@ const de: typeof en = {
   },
   references: {
     title: 'Was meine Kollegen über mich sagen',
-    linkedin: 'Zum LinkedIn-Profil >>',
-    linkedinLabel: 'LinkedIn-Profil von {name}',
     items: {
       first: {
         quote:
