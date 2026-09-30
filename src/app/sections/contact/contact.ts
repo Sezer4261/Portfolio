@@ -33,7 +33,7 @@ import { ContactForm } from './contact-form/contact-form';
   styles: `
     .contact {
       overflow: hidden;
-      padding-bottom: 200px;
+      padding-bottom: 240px;
     }
 
     .contact__inner {
@@ -67,10 +67,10 @@ import { ContactForm } from './contact-form/contact-form';
 
     .contact__stars {
       position: absolute;
-      bottom: -60px;
-      left: max(0px, (100vw - 1440px) / 2);
+      bottom: 24px;
+      left: max(var(--gutter), (100vw - 1440px) / 2);
       width: 260px;
-      height: 240px;
+      height: 180px;
       pointer-events: none;
     }
 
@@ -89,7 +89,7 @@ import { ContactForm } from './contact-form/contact-form';
 
     .contact__star--orange {
       bottom: 0;
-      left: -20px;
+      left: 0;
       width: 180px;
       color: var(--c-orange);
     }
@@ -107,7 +107,7 @@ import { ContactForm } from './contact-form/contact-form';
       }
 
       .contact {
-        padding-bottom: 160px;
+        padding-bottom: 190px;
       }
 
       .contact__stars {

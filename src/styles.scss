@@ -130,6 +130,29 @@ button {
   }
 }
 
+/* Desktop home page: every section fills the screen and scrolling snaps to its start.
+   Sections taller than the screen stay freely scrollable (snap area larger than viewport). */
+@media (min-width: 1024px) {
+  html:has(app-home) {
+    scroll-snap-type: y mandatory;
+  }
+
+  app-home main > * > section {
+    scroll-snap-align: start;
+  }
+
+  app-home main > * > .section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  html:has(app-home) app-footer > footer {
+    scroll-snap-align: end;
+  }
+}
+
 .theme-blue {
   background-color: var(--c-blue);
   color: var(--c-cream);
