@@ -1,7 +1,8 @@
 <section appSection="skills" theme="dark" class="section">
   <div class="container skills">
-    <div class="skills__intro">
-      <h2>{{ 'skills.title' | t }}</h2>
+    <h2 class="skills__title" appReveal>{{ 'skills.title' | t }}</h2>
+
+    <div class="skills__intro" appReveal="left" [revealDelay]="150">
       <p class="skills__text">{{ 'skills.text' | t }}</p>
 
       <div
@@ -37,8 +38,8 @@
     </div>
 
     <ul class="skills__grid">
-      @for (skill of skills; track skill.name) {
-        <li class="skill">
+      @for (skill of skills; track skill.name; let i = $index) {
+        <li class="skill" appReveal="zoom" [revealDelay]="200 + i * 60">
           <img [src]="skill.icon" alt="" width="72" height="72" loading="lazy" />
           <span>{{ skill.name }}</span>
         </li>

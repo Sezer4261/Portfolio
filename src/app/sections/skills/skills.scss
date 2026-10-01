@@ -1,8 +1,13 @@
 .skills {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  grid-template-rows: auto 1fr;
+  gap: 40px 48px;
   min-height: 560px;
+}
+
+.skills__title {
+  grid-column: 1 / -1;
 }
 
 .skills__intro {
@@ -130,6 +135,7 @@
 @media (max-width: 1023px) {
   .skills {
     grid-template-columns: 1fr;
+    grid-template-rows: none;
     min-height: 0;
   }
 

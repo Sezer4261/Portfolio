@@ -1,13 +1,14 @@
 import { Component, computed, signal } from '@angular/core';
 import { PROJECTS } from '../../core/data/projects';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
+import { RevealDirective } from '../../core/animations/reveal.directive';
 import { SectionDirective } from '../../core/sections/section.directive';
 import { ArrowIcon } from '../../shared/arrow-icon/arrow-icon';
 import { Star } from '../../shared/star/star';
 
 @Component({
   selector: 'app-portfolio',
-  imports: [TranslatePipe, SectionDirective, ArrowIcon, Star],
+  imports: [TranslatePipe, SectionDirective, RevealDirective, ArrowIcon, Star],
   templateUrl: './portfolio.html',
   styleUrl: './portfolio.scss',
 })

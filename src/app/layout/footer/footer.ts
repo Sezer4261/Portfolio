@@ -89,13 +89,14 @@ import { SocialLinks } from '../../shared/social-links/social-links';
     @media (max-width: 767px) {
       .footer {
         grid-template-columns: 1fr;
-        justify-items: start;
+        justify-items: center;
+        text-align: center;
       }
 
       .footer__social,
       .footer__legal,
       .footer__top {
-        justify-self: start;
+        justify-self: center;
       }
     }
   `,

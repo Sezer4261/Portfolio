@@ -1,9 +1,10 @@
 <section appSection="about" theme="cream" class="section">
   <div class="container about">
-    <h2 class="about__title">{{ 'about.title' | t }}</h2>
+    <h2 class="about__title" appReveal="right">{{ 'about.title' | t }}</h2>
 
     <img
       class="about__photo"
+      appReveal="left"
       [src]="profile.aboutImage"
       [alt]="'about.photoAlt' | t: { name: fullName }"
       width="600"
@@ -11,12 +12,16 @@
       loading="lazy"
     />
 
-    <div class="about__box">
+    <div class="about__box" appReveal [revealDelay]="200">
       <p>{{ 'about.intro' | t }}</p>
       <p>{{ 'about.learning' | t }}</p>
       <p>{{ 'about.remote' | t }}</p>
       <div class="about__footer">
-        <a class="btn" href="/#contact" (click)="$event.preventDefault(); navigation.goTo('contact')">
+        <a
+          class="btn"
+          href="/#contact"
+          (click)="$event.preventDefault(); navigation.goTo('contact')"
+        >
           {{ 'about.cta' | t }}
         </a>
         <app-star class="about__star" />

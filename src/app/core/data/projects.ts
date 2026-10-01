@@ -38,5 +38,4 @@ export const PROJECTS: Project[] = [
   project('el-pollo-loco', 'El Pollo Loco', 'El-Pollo-Loco', ['JavaScript', 'HTML', 'CSS', 'Canvas'], 0),
   project('join', 'Join', 'Join-App-Sezer', ['JavaScript', 'HTML', 'CSS', 'Firebase'], 1),
   project('poll-app', 'Poll App', 'PollApp', ['Angular', 'TypeScript', 'SCSS', 'Supabase'], 2),
-  project('order-app', 'Order App', 'Order-App', ['JavaScript', 'HTML', 'Tailwind CSS'], 3),
 ];

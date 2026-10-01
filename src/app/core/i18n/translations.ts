@@ -74,12 +74,6 @@ const en = {
       participation:
         'Developed as a team. The app includes registration and login, a Kanban board with drag and drop, contact management and a summary dashboard, backed by Firebase.',
     },
-    'order-app': {
-      description:
-        'An order app for a Turkish restaurant. Put dishes in the shopping cart, change quantities and see the total price including delivery costs at a glance.',
-      participation:
-        'I render the menu and the shopping cart dynamically with JavaScript templates and styled the responsive layout with Tailwind CSS.',
-    },
   },
   references: {
     title: 'What my colleagues say about me',
@@ -217,12 +211,6 @@ const de: typeof en = {
         'Aufgabenmanager nach dem Vorbild des Kanban-Systems. Erstelle und organisiere Aufgaben per Drag-and-drop, weise Kontakte zu und behalte Deadlines in der Übersicht im Blick.',
       participation:
         'Im Team entwickelt. Die App umfasst Registrierung und Login, ein Kanban-Board mit Drag-and-drop, eine Kontaktverwaltung und ein Summary-Dashboard – mit Firebase als Backend.',
-    },
-    'order-app': {
-      description:
-        'Eine Bestell-App für ein türkisches Restaurant. Lege Gerichte in den Warenkorb, ändere Mengen und sieh den Gesamtpreis inklusive Lieferkosten auf einen Blick.',
-      participation:
-        'Ich rendere Speisekarte und Warenkorb dynamisch mit JavaScript-Templates und habe das responsive Layout mit Tailwind CSS gestaltet.',
     },
   },
   references: {

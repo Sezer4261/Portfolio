@@ -1,20 +1,21 @@
 import { Component } from '@angular/core';
 import { REFERENCES } from '../../core/data/references';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
+import { RevealDirective } from '../../core/animations/reveal.directive';
 import { SectionDirective } from '../../core/sections/section.directive';
 import { Star } from '../../shared/star/star';
 
 @Component({
   selector: 'app-references',
-  imports: [TranslatePipe, SectionDirective, Star],
+  imports: [TranslatePipe, SectionDirective, RevealDirective, Star],
   template: `
     <section appSection="references" theme="blue" class="section">
       <div class="container">
-        <h2>{{ 'references.title' | t }}</h2>
+        <h2 appReveal>{{ 'references.title' | t }}</h2>
 
         <ul class="references">
-          @for (reference of references; track reference.key) {
-            <li class="reference">
+          @for (reference of references; track reference.key; let i = $index) {
+            <li class="reference" appReveal [revealDelay]="150 + i * 150">
               <figure class="reference__card">
                 <app-star class="reference__star" />
                 <figcaption class="reference__name">{{ reference.name }}</figcaption>
@@ -29,6 +30,10 @@ import { Star } from '../../shared/star/star';
   styles: `
     h2 {
       margin-bottom: 64px;
+
+      @media (min-width: 900px) {
+        white-space: nowrap;
+      }
     }
 
     .references {

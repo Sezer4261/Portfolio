@@ -1,18 +1,22 @@
 <section appSection="home" theme="blue" class="hero">
   <div class="container hero__inner">
-    <div class="hero__text">
+    <div class="hero__text" appReveal="left">
       <p class="hero__greeting">{{ 'hero.greeting' | t }}</p>
       <h1>
         {{ profile.firstName }}<br />
         {{ profile.lastName }}
       </h1>
       <p class="hero__role">{{ 'hero.role' | t }}</p>
-      <a class="btn hero__cta" href="/#contact" (click)="$event.preventDefault(); navigation.goTo('contact')">
+      <a
+        class="btn hero__cta"
+        href="/#contact"
+        (click)="$event.preventDefault(); navigation.goTo('contact')"
+      >
         {{ 'hero.cta' | t }}
       </a>
     </div>
 
-    <div class="hero__visual">
+    <div class="hero__visual" appReveal="right" [revealDelay]="150">
       <div class="hero__star-wrap">
         <app-star class="hero__star" />
       </div>
@@ -38,7 +42,8 @@
         </defs>
         <text>
           <textPath href="#scroll-circle" textLength="364" lengthAdjust="spacing">
-            {{ 'hero.scrollDown' | t }} · {{ 'hero.scrollDown' | t }} · {{ 'hero.scrollDown' | t }} ·
+            {{ 'hero.scrollDown' | t }} · {{ 'hero.scrollDown' | t }} ·
+            {{ 'hero.scrollDown' | t }} ·
           </textPath>
         </text>
       </svg>

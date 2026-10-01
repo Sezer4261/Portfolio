@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
+import { RevealDirective } from '../../core/animations/reveal.directive';
 import { SectionDirective } from '../../core/sections/section.directive';
 import { Star } from '../../shared/star/star';
 import { ContactForm } from './contact-form/contact-form';
 
 @Component({
   selector: 'app-contact',
-  imports: [TranslatePipe, SectionDirective, Star, ContactForm],
+  imports: [TranslatePipe, SectionDirective, RevealDirective, Star, ContactForm],
   template: `
     <section appSection="contact" theme="dark" class="section contact">
       <div class="container contact__inner">
-        <div class="contact__intro">
+        <div class="contact__intro" appReveal="left">
           <h2>{{ 'contact.title' | t }}</h2>
           <p class="contact__subtitle">{{ 'contact.subtitle' | t }}</p>
           <p>{{ 'contact.text' | t }}</p>
@@ -21,7 +22,7 @@ import { ContactForm } from './contact-form/contact-form';
           </p>
         </div>
 
-        <app-contact-form id="contact-form" class="contact__form" />
+        <app-contact-form id="contact-form" class="contact__form" appReveal="right" [revealDelay]="150" />
       </div>
 
       <div class="contact__stars" aria-hidden="true">

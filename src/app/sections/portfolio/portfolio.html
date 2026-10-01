@@ -1,71 +1,77 @@
 <section appSection="portfolio" theme="cream" class="section">
   <div class="container">
-    <div class="portfolio__head">
+    <div class="portfolio__head" appReveal>
       <h2>{{ 'portfolio.title' | t }}</h2>
       <p>{{ 'portfolio.intro' | t }}</p>
     </div>
 
-    @for (project of [current()]; track project.key) {
-      <article class="project" aria-live="polite">
-        <div class="project__preview" [style.background-color]="project.boxColor">
-          <app-star class="project__rays" [style.color]="project.rayColor" />
-          <img
-            class="project__image"
-            [src]="project.image"
-            [alt]="'portfolio.previewAlt' | t: { project: project.title }"
-            width="960"
-            height="683"
-            loading="lazy"
-          />
-        </div>
+    <div appReveal [revealDelay]="150">
+      @for (project of [current()]; track project.key) {
+        <article class="project" aria-live="polite">
+          <div class="project__preview" [style.background-color]="project.boxColor">
+            <app-star class="project__rays" [style.color]="project.rayColor" />
+            <img
+              class="project__image"
+              [src]="project.image"
+              [alt]="'portfolio.previewAlt' | t: { project: project.title }"
+              width="960"
+              height="683"
+              loading="lazy"
+            />
+          </div>
 
-        <div class="project__info">
-          <div class="project__title-row">
-            <h3>{{ project.title }}</h3>
+          <div class="project__info">
+            <div class="project__title-row">
+              <h3>{{ project.title }}</h3>
 
-            <div
-              class="participation"
-              [class.open]="capsuleOpen()"
-              (mouseenter)="capsuleOpen.set(true)"
-              (mouseleave)="capsuleOpen.set(false)"
-            >
-              <button
-                type="button"
-                class="participation__trigger"
-                [attr.aria-expanded]="capsuleOpen()"
-                aria-controls="participation-capsule"
-                [attr.aria-label]="'portfolio.participation' | t: { project: project.title }"
-                (click)="capsuleOpen.set(!capsuleOpen())"
+              <div
+                class="participation"
+                [class.open]="capsuleOpen()"
+                (mouseenter)="capsuleOpen.set(true)"
+                (mouseleave)="capsuleOpen.set(false)"
               >
-                <img [src]="project.icon" alt="" width="40" height="40" />
-              </button>
-              <p id="participation-capsule" class="participation__capsule" [attr.aria-hidden]="!capsuleOpen()">
-                {{ 'projects.' + project.key + '.participation' | t }}
-              </p>
+                <button
+                  type="button"
+                  class="participation__trigger"
+                  [attr.aria-expanded]="capsuleOpen()"
+                  aria-controls="participation-capsule"
+                  [attr.aria-label]="'portfolio.participation' | t: { project: project.title }"
+                  (click)="capsuleOpen.set(!capsuleOpen())"
+                >
+                  <img [src]="project.icon" alt="" width="40" height="40" />
+                </button>
+                <p
+                  id="participation-capsule"
+                  class="participation__capsule"
+                  [attr.aria-hidden]="!capsuleOpen()"
+                >
+                  {{ 'projects.' + project.key + '.participation' | t }}
+                </p>
+              </div>
+            </div>
+
+            <p class="project__tech">{{ project.technologies.join(' | ') }}</p>
+            <p class="project__description">{{ 'projects.' + project.key + '.description' | t }}</p>
+
+            <div class="project__links">
+              <a class="btn" [href]="project.github" target="_blank" rel="noopener noreferrer">
+                {{ 'portfolio.github' | t }} <app-arrow-icon />
+              </a>
+              <a class="btn" [href]="project.live" target="_blank" rel="noopener noreferrer">
+                {{ 'portfolio.live' | t }} <app-arrow-icon />
+              </a>
             </div>
           </div>
+        </article>
+      }
 
-          <p class="project__tech">{{ project.technologies.join(' | ') }}</p>
-          <p class="project__description">{{ 'projects.' + project.key + '.description' | t }}</p>
-
-          <div class="project__links">
-            <a class="btn" [href]="project.github" target="_blank" rel="noopener noreferrer">
-              {{ 'portfolio.github' | t }} <app-arrow-icon />
-            </a>
-            <a class="btn" [href]="project.live" target="_blank" rel="noopener noreferrer">
-              {{ 'portfolio.live' | t }} <app-arrow-icon />
-            </a>
-          </div>
-        </div>
-      </article>
-    }
-
-    <div class="project__nav">
-      <button type="button" (click)="previous()">{{ 'portfolio.previous' | t }}</button>
-      <span class="visually-hidden" aria-live="polite">
-        {{ 'portfolio.counter' | t: { current: index() + 1, total: projects.length } }}
-      </span>
-      <button type="button" (click)="next()">{{ 'portfolio.next' | t }}</button>
+      <div class="project__nav">
+        <button type="button" (click)="previous()">{{ 'portfolio.previous' | t }}</button>
+        <span class="visually-hidden" aria-live="polite">
+          {{ 'portfolio.counter' | t: { current: index() + 1, total: projects.length } }}
+        </span>
+        <button type="button" (click)="next()">{{ 'portfolio.next' | t }}</button>
+      </div>
     </div>
   </div>
 </section>
